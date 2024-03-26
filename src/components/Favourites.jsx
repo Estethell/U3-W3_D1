@@ -3,6 +3,7 @@ import { FaTrash } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
+import { removeToList } from "../redux/actions";
 
 const Favourites = ({ fav = [] }) => {
   const dispatch = useDispatch();
@@ -20,10 +21,7 @@ const Favourites = ({ fav = [] }) => {
                 variant="danger"
                 className="mx-5"
                 onClick={() => {
-                  dispatch({
-                    type: "REMOVE_TO_LIST",
-                    payload: fav._id,
-                  });
+                  dispatch(removeToList(i));
                 }}
               >
                 <FaTrash />

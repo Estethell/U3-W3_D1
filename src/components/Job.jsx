@@ -2,6 +2,7 @@ import { Row, Col } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import Button from "react-bootstrap/Button";
 import { useDispatch } from "react-redux";
+import { addToList } from "../redux/actions";
 
 const Job = ({ data }) => {
   const dispatch = useDispatch();
@@ -17,10 +18,7 @@ const Job = ({ data }) => {
         <Button
           className="bg-success"
           onClick={() => {
-            dispatch({
-              type: "ADD_TO_LIST",
-              payload: data,
-            });
+            dispatch(addToList(data));
           }}
         >
           Add to List
