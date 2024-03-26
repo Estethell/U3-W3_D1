@@ -8,7 +8,9 @@ const listReducer = (state = initialState, action) => {
       return {
         ...state,
 
-        favourites: state.favourites.concat(action.payload),
+        favourites: state.favourites.includes(action.payload)
+          ? state.favourites
+          : state.favourites.concat(action.payload),
       };
     case "REMOVE_TO_LIST":
       return {
